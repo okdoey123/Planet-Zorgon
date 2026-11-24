@@ -144,10 +144,16 @@ different from each other.
 - **How to get in:** scroll to the very bottom of the home page. There are three twinkling stars
   above "End of transmission." Only the **right** star (the one on the right) works.
   The other two just wiggle. Then type the password.
-- **What to edit:** `special-content.js`: their name, a photo, your note, and the
-  movies & shows they should watch. Visitors can tick off what they've watched (it's remembered on their device).
-- **Changing the password:** the password isn't written anywhere in the files (only a scrambled
-  fingerprint of it is). Ask Claude to change it.
-- **Honest warning:** this is a cute lock, not a bank vault. The site has no server, so someone
-  who knows how to read website code (or looks in your public GitHub repo) could still read the
-  words in `special-content.js`. Don't put anything truly private there.
+- **It's properly scrambled.** Everything on the page (the name, your note, the photo and the
+  watchlist) is encrypted inside `special-locked.js`. Without the right password it's just
+  gibberish, even to someone reading your public GitHub repo. The password isn't stored anywhere.
+- **How to update it:** ask Claude, e.g. *"Update my special page: add Past Lives to the watchlist,"*
+  and tell Claude the password in the chat. Claude unscrambles it, makes the change and scrambles
+  it again with `tools/special-lock.mjs`. You can't edit it by hand on GitHub, because that's the
+  price of real scrambling.
+- **Changing the password:** ask Claude to re-lock the page with a new one.
+- **Pick a stronger password one day:** a short, guessable word can be cracked by a determined
+  person with a computer trying lots of words. A longer phrase only the two of you would know
+  (e.g. "pineapple-on-the-moon-1407") makes it far harder.
+- **Don't forget the password:** without it, not even Claude can read the page again.
+- **Never write the password in any file of this site.** The repo is public.

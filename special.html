@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>A special space · Planet Zorgon</title>
+  <meta name="theme-color" content="#17184a">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="is-special">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-planet" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="6.5" fill="currentColor"/>
+      <ellipse cx="12" cy="12" rx="11" ry="3.6" fill="none" stroke="currentColor" stroke-width="1.8" transform="rotate(-20 12 12)"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24">
+      <path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24">
+      <path d="M12 0c.8 6.4 4.4 10.6 12 12-7.6 1.4-11.2 5.6-12 12-.8-6.4-4.4-10.6-12-12 7.6-1.4 11.2-5.6 12-12Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24">
+      <path d="M12 21s-8.5-5.3-8.5-11.2A4.8 4.8 0 0 1 12 6.6a4.8 4.8 0 0 1 8.5 3.2C20.5 15.7 12 21 12 21Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24">
+      <rect x="4.5" y="10.5" width="15" height="10.5" rx="2.5" fill="currentColor"/>
+      <path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" fill="none" stroke="currentColor" stroke-width="2.4"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24">
+      <path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="sky" aria-hidden="true"></div>
+
+<header class="bar is-scrolled" id="bar">
+  <a class="bar__home" href="index.html#top" aria-label="Planet Zorgon home">
+    <svg class="bar__logo" aria-hidden="true"><use href="#i-planet"/></svg>
+    <span>Planet Zorgon</span>
+  </a>
+</header>
+
+<!-- ===== Gate: shown until the password is right ===== -->
+<main class="gate" id="gate">
+  <div class="gate__card">
+    <svg class="gate__lock" aria-hidden="true"><use href="#i-lock"/></svg>
+
+    <div id="gate-nostar" hidden>
+      <h1 class="gate__h">Wrong way in</h1>
+      <p class="gate__p">This place can only be reached by following the right star.</p>
+      <a class="gate__btn" href="index.html#top">Back to Planet Zorgon</a>
+    </div>
+
+    <form id="gate-form" hidden novalidate>
+      <h1 class="gate__h">Who goes there?</h1>
+      <p class="gate__p">You found the right star. One last thing.</p>
+      <label class="gate__label" for="pw">Password</label>
+      <input class="gate__input" id="pw" name="pw" type="password" autocomplete="current-password" required aria-describedby="pw-msg">
+      <p class="gate__msg" id="pw-msg" role="alert"></p>
+      <button class="gate__btn" type="submit">Unlock</button>
+    </form>
+  </div>
+</main>
+
+<!-- ===== The special space ===== -->
+<div id="secret" hidden>
+  <section class="sp-hero">
+    <div class="sp-hero__copy">
+      <h1 class="sp-title" id="sp-title"></h1>
+      <p class="sp-for">For <span id="sp-name"></span></p>
+    </div>
+    <div class="sp-planet" aria-hidden="true">
+      <svg viewBox="0 0 600 600" class="planet" id="sp-planet"></svg>
+    </div>
+  </section>
+
+  <section class="sp-note" aria-labelledby="sp-note-h">
+    <div class="sp-note__inner">
+      <figure class="sp-photo">
+        <div class="ink ink--pink sp-photo__img" id="sp-photo"></div>
+        <figcaption id="sp-caption"></figcaption>
+      </figure>
+      <article class="sheet sp-letter">
+        <h2 class="sp-h" id="sp-note-h">A note for you</h2>
+        <div class="prose" id="sp-letter"></div>
+        <p class="sp-sign" id="sp-sign"></p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sp-watch" aria-labelledby="sp-watch-h">
+    <div class="sp-watch__head">
+      <h2 class="display" id="sp-watch-h">Watch these</h2>
+      <div class="tabs" role="tablist" aria-label="Filter">
+        <button role="tab" data-f="all" aria-selected="true">All</button>
+        <button role="tab" data-f="movie" aria-selected="false">Movies</button>
+        <button role="tab" data-f="show" aria-selected="false">Shows</button>
+      </div>
+    </div>
+    <p class="sp-progress" id="sp-progress" aria-live="polite"></p>
+    <ul class="sp-list" id="sp-list"></ul>
+  </section>
+
+  <footer class="foot">
+    <p class="foot__end">Only for you.</p>
+    <p class="foot__small"><a href="index.html#top">Back to Planet Zorgon</a></p>
+  </footer>
+</div>
+
+<div class="oops" id="oops" role="alert" hidden></div>
+
+<script src="content.js"></script>
+<script src="special-content.js"></script>
+<script src="shared.js"></script>
+<script src="special.js"></script>
+</body>
+</html>

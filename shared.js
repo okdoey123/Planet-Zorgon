@@ -113,6 +113,15 @@ window.PZ = (function () {
       + moviesSurface([253], false)
       + gamesSurface(345);
   }
+  // Special planet: soft pink with rows of little hearts
+  function specialSurface() {
+    let out = `<rect x="110" y="110" width="380" height="380" fill="${C.pink}"/>`;
+    const heart = (x, y, sz, fill) => `<path transform="translate(${x} ${y}) scale(${sz})" d="M0 -3c-1.6-4-8-4-8 1 0 4 5 7 8 10 3-3 8-6 8-10 0-5-6.4-5-8-1z" fill="${fill}"/>`;
+    const fills = [C.pinkLite, C.paper, C.yellow, C.pinkLite];
+    let k = 0;
+    for (let y = 130; y < 490; y += 38) for (let x = 120 + ((y / 38) % 2) * 19; x < 490; x += 38) out += heart(x, y, 1.15, fills[k++ % fills.length]);
+    return out;
+  }
   function burst(cx, cy, R, n, fill) {
     let p = "";
     for (let i = 0; i < n * 2; i++) {
@@ -122,13 +131,14 @@ window.PZ = (function () {
     return `<polygon points="${p}" fill="${fill}" stroke="${C.ink}" stroke-width="3" stroke-linejoin="round"/>`;
   }
 
-  function ring(cat, front) {
-    const d = front ? "M560 300a260 70 0 0 1-520 0" : "M40 300a260 70 0 0 1 520 0";
-    const dash = { comics: "58 7", movies: "", games: "16 5", mix: "58 7" }[cat];
+  // The whole ring sits BEHIND the ball: it only shows where it pokes out at the sides.
+  function ring(cat) {
+    const d = "M40 300a260 70 0 1 1 520 0a260 70 0 1 1-520 0";
+    const dash = { comics: "58 7", movies: "", games: "16 5", mix: "58 7", special: "" }[cat];
     let s = `<path d="${d}" fill="none" stroke="${C.ink}" stroke-width="34"/>
              <path d="${d}" fill="none" stroke="${C.yellow}" stroke-width="24" ${dash ? `stroke-dasharray="${dash}"` : ""}/>`;
     if (cat === "movies" || cat === "mix") s += `<path d="${d}" fill="none" stroke="${C.ink}" stroke-width="6" stroke-dasharray="7 9"/>`;
-    return `<g class="planet__ring${front ? " planet__ring--front" : ""}" transform="rotate(-18 300 300)">${s}</g>`;
+    return `<g class="planet__ring" transform="rotate(-18)">${s}</g>`;
   }
 
   function moons(cat) {
@@ -146,7 +156,7 @@ window.PZ = (function () {
   }
 
   function buildPlanet(cat, opts = {}) {
-    const surface = { comics: comicsSurface, movies: moviesSurface, games: gamesSurface, mix: mixSurface }[cat]();
+    const surface = { comics: comicsSurface, movies: moviesSurface, games: gamesSurface, mix: mixSurface, special: specialSurface }[cat]();
     return `
       <defs>
         <pattern id="bd" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><circle cx="4.5" cy="4.5" r="2" fill="${C.ink}"/></pattern>
@@ -160,7 +170,7 @@ window.PZ = (function () {
         </radialGradient>
       </defs>
       ${opts.burst === false ? "" : `<g class="rv-burst">${burst(300, 300, 292, 16, C.pink).replace(`stroke="${C.ink}" stroke-width="3"`, 'stroke="none"')}</g>`}
-      ${ring(cat, false)}
+      ${ring(cat)}
       <g class="planet__ball">
         <g clip-path="url(#rvclip)">
           <g transform="rotate(-18 300 300)">
@@ -171,7 +181,6 @@ window.PZ = (function () {
         </g>
         <circle cx="300" cy="300" r="190" fill="none" stroke="${C.ink}" stroke-width="7"/>
       </g>
-      ${ring(cat, true)}
       ${moons(cat)}`;
   }
 

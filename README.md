@@ -136,3 +136,18 @@ The site prints every picture in one ink colour, like a risograph zine. Hover ov
 At the top of `styles.css` there's a list of colours (`--pink`, `--blue`, `--yellow`).
 Change those hex codes and the whole site updates. Keep three colours that are clearly
 different from each other.
+
+---
+
+## The secret page: "A special space for a special someone"
+
+- **How to get in:** scroll to the very bottom of the home page. There are three twinkling stars
+  above "End of transmission." Only the **right** star (the one on the right) works.
+  The other two just wiggle. Then type the password.
+- **What to edit:** `special-content.js`: their name, a photo, your note, and the
+  movies & shows they should watch. Visitors can tick off what they've watched (it's remembered on their device).
+- **Changing the password:** the password isn't written anywhere in the files (only a scrambled
+  fingerprint of it is). Ask Claude to change it.
+- **Honest warning:** this is a cute lock, not a bank vault. The site has no server, so someone
+  who knows how to read website code (or looks in your public GitHub repo) could still read the
+  words in `special-content.js`. Don't put anything truly private there.

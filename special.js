@@ -4,9 +4,6 @@
   const $ = (s, r = document) => r.querySelector(s);
   const { esc, paras, picture, reduceMotion } = PZ;
 
-  // SHA-256 of the password (the password itself is never stored in the code).
-  const HASH = "cb893729feffa2b3466c495a026437da75280d14f023d7ef5ed6a9dcc9d5e578";
-
   const store = {
     get(k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } },
     set(k, v) { try { sessionStorage.setItem(k, v); } catch (e) {} },
@@ -17,17 +14,24 @@
   };
 
   let SP = null;
-  try { SP = SPECIAL; } catch (e) { SP = null; }
 
-  async function sha256(text) {
-    const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
-    return Array.from(new Uint8Array(buf)).map((b) => b.toString(16).padStart(2, "0")).join("");
+  // The page's content is encrypted (AES-GCM, key made from the password with PBKDF2).
+  // Getting the password right is the only way to turn it back into words.
+  const unb64 = (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
+  async function unlock(password) {
+    const L = window.SPECIAL_LOCKED;
+    if (!L) throw new Error("missing");
+    const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(password), "PBKDF2", false, ["deriveKey"]);
+    const key = await crypto.subtle.deriveKey({ name: "PBKDF2", salt: unb64(L.salt), iterations: L.iter, hash: "SHA-256" }, base, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
+    try {
+      const plain = await crypto.subtle.decrypt({ name: "AES-GCM", iv: unb64(L.iv) }, key, unb64(L.data));
+      return JSON.parse(new TextDecoder().decode(plain));
+    } catch (e) { return null; }
   }
 
   /* ---------- gate ---------- */
   const cameByStar = store.get("pz-star") === "1";
-  if (store.get("pz-special") === "open") reveal();
-  else if (!cameByStar) $("#gate-nostar").hidden = false;
+  if (!cameByStar) $("#gate-nostar").hidden = false;
   else {
     const f = $("#gate-form");
     f.hidden = false;
@@ -37,10 +41,13 @@
       const v = $("#pw").value.trim().toLowerCase();
       const msg = $("#pw-msg");
       if (!v) { msg.textContent = "Type the password first."; return; }
-      let ok = false;
-      try { ok = (await sha256(v)) === HASH; } catch (err) { msg.textContent = "This browser can't check passwords. Try opening the site with https://."; return; }
-      if (ok) { store.set("pz-special", "open"); reveal(); }
-      else {
+      const btn = f.querySelector("button");
+      btn.disabled = true; btn.textContent = "Unlocking…"; msg.textContent = "";
+      let data = null;
+      try { data = await unlock(v); } catch (err) { msg.textContent = "This browser can't unlock the page. Try opening the site with https://."; }
+      btn.disabled = false; btn.textContent = "Unlock";
+      if (data) { SP = data; reveal(); }
+      else if (!msg.textContent) {
         msg.textContent = "Not quite. Try again.";
         f.classList.remove("shake"); void f.offsetWidth; f.classList.add("shake");
         $("#pw").select();
@@ -53,7 +60,6 @@
     $("#gate").remove();
     const secret = $("#secret");
     secret.hidden = false;
-    if (!SP) { $("#oops").hidden = false; $("#oops").innerHTML = "<strong>special-content.js didn't load.</strong> Check for a missing comma or backtick near your last edit."; return; }
 
     document.title = `${SP.title} · Planet Zorgon`;
     $("#sp-title").textContent = SP.title;

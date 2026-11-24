@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Planet Zorgon</title>
+  <meta name="description" content="Planet Zorgon: reviews of movies, games and comics I like, plus the Daily Miseries.">
+  <meta name="theme-color" content="#2846b8">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/shrikhand.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Icon set (drawn once, reused everywhere) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-planet" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="6.5" fill="currentColor"/>
+      <ellipse cx="12" cy="12" rx="11" ry="3.6" fill="none" stroke="currentColor" stroke-width="1.8" transform="rotate(-20 12 12)"/>
+    </symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24">
+      <path d="M7 17.5h10.2a4 4 0 0 0 .5-7.97A5.5 5.5 0 0 0 7.1 8.6 4.5 4.5 0 0 0 7 17.5Z" fill="currentColor"/>
+      <path d="M8.5 19.8l-.8 2M12.5 19.8l-.8 2M16.5 19.8l-.8 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-close" viewBox="0 0 24 24">
+      <path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24">
+      <path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24">
+      <path d="M12 0c.8 6.4 4.4 10.6 12 12-7.6 1.4-11.2 5.6-12 12-.8-6.4-4.4-10.6-12-12 7.6-1.4 11.2-5.6 12-12Z" fill="currentColor"/>
+    </symbol>
+  </defs>
+</svg>
+
+<a class="skip" href="#about">Skip to content</a>
+
+<header class="bar" id="bar">
+  <a class="bar__home" href="#top" aria-label="Planet Zorgon, back to top">
+    <svg class="bar__logo" aria-hidden="true"><use href="#i-planet"/></svg>
+    <span data-site-name>Planet Zorgon</span>
+  </a>
+  <nav class="bar__nav" aria-label="Sections">
+    <a href="#about" data-nav="about">About</a>
+    <a href="#like" data-nav="like">Shit I Like</a>
+    <a href="#miseries" data-nav="miseries">Daily Miseries</a>
+  </nav>
+</header>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="hero__sparks" aria-hidden="true">
+      <svg style="--x:8%;--y:18%;--s:18px"><use href="#i-spark"/></svg>
+      <svg style="--x:46%;--y:9%;--s:12px"><use href="#i-spark"/></svg>
+      <svg style="--x:90%;--y:14%;--s:22px"><use href="#i-spark"/></svg>
+      <svg style="--x:4%;--y:78%;--s:14px"><use href="#i-spark"/></svg>
+      <svg style="--x:58%;--y:88%;--s:16px"><use href="#i-spark"/></svg>
+    </div>
+
+    <div class="hero__planet" aria-hidden="true">
+      <svg viewBox="0 0 600 600" class="planet" id="planet"></svg>
+    </div>
+
+    <div class="hero__copy">
+      <h1 class="hero__title" data-site-name-split>
+        <span>Planet</span>
+        <span>Zorgon</span>
+      </h1>
+      <p class="hero__tag" data-site-tagline></p>
+      <nav class="hero__moons" aria-label="Jump to">
+        <a class="moon moon--pink" href="#like/movies">Movies</a>
+        <a class="moon moon--yellow" href="#like/games">Games</a>
+        <a class="moon moon--paper" href="#like/comics">Comics</a>
+      </nav>
+    </div>
+
+    <a class="hero__latest" id="latest" href="#miseries" hidden>
+      <span class="hero__latest-label">Latest misery</span>
+      <span class="hero__latest-text"></span>
+      <svg aria-hidden="true"><use href="#i-arrow"/></svg>
+    </a>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about" id="about" aria-labelledby="about-h">
+    <div class="about__inner">
+      <div class="passport" id="passport">
+        <div class="passport__head">
+          <svg aria-hidden="true"><use href="#i-planet"/></svg>
+          <span>Inhabitant registration</span>
+        </div>
+        <div class="passport__body">
+          <div class="ink ink--pink passport__photo" data-slot="about-photo"></div>
+          <dl class="passport__fields"></dl>
+        </div>
+        <div class="passport__stamp" aria-hidden="true">
+          <svg viewBox="0 0 120 120">
+            <defs><path id="stampcircle" d="M60 60m-44 0a44 44 0 1 1 88 0a44 44 0 1 1-88 0"/></defs>
+            <circle cx="60" cy="60" r="56" fill="none" stroke="currentColor" stroke-width="3"/>
+            <circle cx="60" cy="60" r="34" fill="none" stroke="currentColor" stroke-width="2"/>
+            <text font-size="11.5" letter-spacing="2.6" fill="currentColor"><textPath href="#stampcircle">APPROVED · PLANET ZORGON · </textPath></text>
+            <use href="#i-planet" x="44" y="44" width="32" height="32" fill="currentColor"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="about__text">
+        <h2 class="display" id="about-h"></h2>
+        <div class="prose" id="about-bio"></div>
+      </div>
+    </div>
+    <ul class="evidence" id="evidence"></ul>
+  </section>
+
+  <!-- ============ SHIT I LIKE ============ -->
+  <section class="like" id="like" aria-labelledby="like-h">
+    <div class="like__head">
+      <h2 class="display" id="like-h">Shit I Like</h2>
+      <div class="tabs" role="tablist" aria-label="Categories">
+        <button role="tab" id="tab-movies" aria-controls="panel-movies" data-cat="movies">Movies <span class="tabs__n"></span></button>
+        <button role="tab" id="tab-games" aria-controls="panel-games" data-cat="games">Games <span class="tabs__n"></span></button>
+        <button role="tab" id="tab-comics" aria-controls="panel-comics" data-cat="comics">Comics <span class="tabs__n"></span></button>
+      </div>
+    </div>
+    <div role="tabpanel" id="panel-movies" aria-labelledby="tab-movies" class="shelf shelf--movies" tabindex="0"></div>
+    <div role="tabpanel" id="panel-games" aria-labelledby="tab-games" class="shelf shelf--games" tabindex="0" hidden></div>
+    <div role="tabpanel" id="panel-comics" aria-labelledby="tab-comics" class="shelf shelf--comics" tabindex="0" hidden></div>
+  </section>
+
+  <!-- ============ DAILY MISERIES ============ -->
+  <section class="miseries" id="miseries" aria-labelledby="mis-h">
+    <div class="miseries__head">
+      <h2 class="display" id="mis-h">Daily Miseries</h2>
+      <p class="miseries__sub">A log of everything going wrong, one day at a time.</p>
+    </div>
+    <div class="miseries__body">
+      <div class="calendar" role="tablist" aria-label="Entries by date" aria-orientation="vertical" id="calendar"></div>
+      <article class="sheet" id="sheet" role="tabpanel" tabindex="0" aria-live="polite"></article>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <svg class="foot__planet" viewBox="0 0 600 200" aria-hidden="true">
+    <circle cx="300" cy="230" r="170" fill="#ff4fa3"/>
+    <ellipse cx="300" cy="190" rx="270" ry="40" fill="none" stroke="#ffd23f" stroke-width="16" transform="rotate(-6 300 190)"/>
+  </svg>
+  <p class="foot__end">End of transmission.</p>
+  <p class="foot__small"><span data-site-name>Planet Zorgon</span> · written by its only inhabitant · <a href="#top">Back to orbit</a></p>
+</footer>
+
+<div class="oops" id="oops" role="alert" hidden></div>
+
+<script src="content.js"></script>
+<script src="shared.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

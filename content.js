@@ -26,11 +26,11 @@ const SITE = {
 const ABOUT = {
   photo: "images/me.jpg",          // a portrait, face clearly visible
   heading: `About Me`,
-  bio: `People love to make unnecessary opinions on things but modern society does not let you let it out. This is a place for me to let it out not you guys. You guys can see me let it out.
+  bio: `People love to form unnecessary opinions on things, but modern society does not let you let them out. This is a place for me to let it out, not you guys. You guys can see me let it out.
 
-I realize this is the most 2010 thing i can do and that is fine. **to catch up with time you have run behind it first** (this line is trademarked, for making it a t shirt contact me).
+I realize this is the most 2010 thing I can do, and that is fine. **To catch up with time, you have to run behind it first** (this line is trademarked; for making it a T-shirt, contact me).
 
-So sit back and enjoy planet zorgon for all its glory and infamy. and if for gods sake i keep this shit running for even a week I will consider it a success.`,
+So sit back and enjoy Planet Zorgon in all its glory and infamy. And if, for God's sake, I keep this shit running for even a week, I will consider it a success.`,
 
   // The little "alien passport" card. Change the right-hand side of each line.
   passport: [

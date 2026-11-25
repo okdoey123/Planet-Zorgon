@@ -25,11 +25,11 @@ const SITE = {
 const ABOUT = {
   photo: "",                       // e.g. "images/me.jpg"  (a portrait, face clearly visible)
   heading: `About Me`,
-  bio: `Hi. I'm the only inhabitant of Planet Zorgon. I watch too many movies, lose sleep to video games, and own more comics than shelves.
+  bio: `People love to make unnecessary opinions on things but modern society does not let you let it out. This is a place for me to let it out not you guys. You guys can see me let it out.
 
-This is where I keep track of what I love and what's slowly ruining my week. No algorithm, no sponsors, just me.
+I realize this is the most 2010 thing i can do and that is fine. to catch up with time you have run behind it first (this line is trademarked, for making it a t shirt contact me).
 
-(Sample text — replace this with a few honest lines about yourself.)`,
+So sit back and enjoy planet zorgon for all its glory and infamy. and if for gods sake i keep this shit running for even a week I will consider it a success.`,
 
   // The little "alien passport" card. Change the right-hand side of each line.
   passport: [

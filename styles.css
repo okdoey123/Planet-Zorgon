@@ -336,7 +336,7 @@ code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: .88em;
 .print:hover, .print:focus-within { transform: rotate(0) translateY(-6px); }
 .print__link { display: block; text-decoration: none; background: var(--paper); border-radius: 10px; padding: var(--s3); box-shadow: var(--shadow); height: 100%; }
 .print__img { aspect-ratio: 2 / 3; border-radius: 5px; }
-.shelf--games .print__img { aspect-ratio: 4 / 3; }
+.shelf--games .print__img { aspect-ratio: 16 / 9; }
 .shelf--comics .print__img { aspect-ratio: 3 / 4; }
 .print__text { padding: var(--s4) var(--s2) var(--s2); }
 .print__title { font-family: var(--display); font-weight: 400; font-size: 1.45rem; line-height: 1.05; margin: 0 0 var(--s2); color: var(--blue); text-wrap: balance; }
@@ -581,7 +581,7 @@ code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: .88em;
 .rv-body__inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 400px) minmax(0, 1fr); gap: var(--s8); align-items: start; }
 .rv-cover { position: sticky; top: 96px; }
 .rv-cover__img { aspect-ratio: 2 / 3; border-radius: 8px; border: 10px solid var(--paper); box-shadow: var(--shadow); transform: rotate(-2deg); }
-[data-cat="games"] .rv-cover__img { aspect-ratio: 4 / 3; }
+[data-cat="games"] .rv-cover__img { aspect-ratio: 16 / 9; }
 [data-cat="comics"] .rv-cover__img { aspect-ratio: 2 / 3; }
 .rv-cover__hint { margin: var(--s4) 0 0; text-align: center; font-weight: 650; font-stretch: 85%; font-size: .9rem; color: var(--ink-soft); }
 .rv-sheet { min-height: 0; }

@@ -77,7 +77,7 @@ const GAMES = [
     "title": "Valor Mortis",
     "year": "2026",
     "date": "2026-11-25",
-    "image": "",
+    "image": "images/valor-mortis.jpg",
     "score": 3,
     "verdict": "Napoleon and his small dick energy",
     "review": "",
@@ -91,28 +91,6 @@ const GAMES = [
         "Lyrical Games"
       ]
     ]
-  },
-  {
-    "sample": true,
-    "title": "Hollow Knight",
-    "year": "2017",
-    "date": "",
-    "image": "",
-    "score": 5,
-    "verdict": "I died 400 times and said thank you every time.",
-    "review": "Sample game review. How many hours did it eat? What was the moment you got hooked?\n\nWas it worth the money (or the sleep)?",
-    "credits": []
-  },
-  {
-    "sample": true,
-    "title": "Red Dead Redemption 2",
-    "year": "2018",
-    "date": "",
-    "image": "",
-    "score": 4,
-    "verdict": "A cowboy simulator that made me feel things about a horse.",
-    "review": "Sample game review. Replace me.",
-    "credits": []
   }
 ];
 const COMICS = [

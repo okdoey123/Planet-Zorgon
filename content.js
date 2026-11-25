@@ -10,7 +10,7 @@ const SITE = {
 const ABOUT = {
   "photo": "images/me.jpg",
   "heading": "About Me",
-  "bio": "People love to form unnecessary opinions on things, but modern society does not let you let them out. This is a place for me to let it out, not you guys. You guys can see me let it out.\n\nI realize this is the most 2010 thing I can do, and that is fine. **To catch up with time, you have to run behind it first** (this line is trademarked; for making it a T-shirt, contact me).\n\nSo sit back and enjoy Planet Zorgon in all its glory and infamy. And if, for God's sake, I keep this shit running for even a week, I will consider it a success.",
+  "bio": "People love to form unnecessary opinions on things, but modern society does not let you let them out. This is a place for me to let it out, not you guys. You guys can see me let it out.\n\nI realize this is the most 2010 thing I can do, and that is fine. **To catch up with time, you have to run behind it first** (this line is trademarked; for making it a T-shirt, contact me).\n\nSo sit back and enjoy Planet Zorgon in all its glory and infamy. And if, for God's sake, I keep this shit running for even a week, I will consider it a success. - Ayush worked on it for 10 hours, keep it up you bastard.",
   "passport": [
     [
       "Name",
@@ -73,6 +73,25 @@ const MOVIES = [
   }
 ];
 const GAMES = [
+  {
+    "title": "Valor Mortis",
+    "year": "2026",
+    "date": "2026-11-25",
+    "image": "",
+    "score": 4,
+    "verdict": "Napoleon and his small dick energy",
+    "review": "",
+    "credits": [
+      [
+        "Developer",
+        "One More Level"
+      ],
+      [
+        "Publisher",
+        "Lyrical Games"
+      ]
+    ]
+  },
   {
     "sample": true,
     "title": "Hollow Knight",

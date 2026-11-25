@@ -718,7 +718,7 @@ code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: .88em;
 .signal__form { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--s2); background: var(--paper); padding: var(--s2); border-radius: 999px; box-shadow: var(--shadow); }
 .signal__input { min-width: 0; border: 0; background: transparent; font: inherit; font-size: 1.05rem; padding: var(--s3) var(--s4); color: var(--ink); border-radius: 999px; }
 .signal__input:focus { outline: 3px solid var(--blue); outline-offset: 2px; }
-.signal__input::placeholder { color: #7a7ca8; }
+.signal__input::placeholder { color: #5a5c8c; }
 .signal__btn { border: 0; cursor: pointer; border-radius: 999px; padding: var(--s3) var(--s5); background: var(--ink); color: var(--yellow); font-weight: 760; font-stretch: 80%; font-size: 1.05rem; letter-spacing: .04em; text-transform: uppercase; transition: background-color .2s, transform .3s var(--ease-out); }
 .signal__btn:hover { background: var(--blue); transform: translateY(-1px); }
 .signal__fine { grid-column: 1 / -1; margin: var(--s1) var(--s4) var(--s1); font-size: .85rem; color: var(--ink-soft); }

@@ -610,20 +610,16 @@ code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: .88em;
 .hint-tap { display: none; }
 @media (hover: none) { .hint-hover { display: none; } .hint-tap { display: inline; } }
 
-/* ---------- the three wishing stars in the footer ---------- */
+/* ---------- the three wishing stars in the footer ----------
+   All three look and behave exactly alike, so nothing gives away the right one. */
 .wish { display: flex; justify-content: center; gap: var(--s5); margin: var(--s5) 0 0; position: relative; z-index: 1; }
-.wish__star { width: 44px; height: 44px; display: grid; place-items: center; border: 0; background: none; cursor: pointer; color: var(--yellow); border-radius: 50%; }
-.wish__star svg { width: 22px; height: 22px; transition: transform .4s var(--ease-out); }
-.wish__star:nth-child(2) svg { width: 16px; height: 16px; }
-.motion .wish__star svg { animation: twinkle 3.2s ease-in-out infinite; }
-.motion .wish__star:nth-child(2) svg { animation-delay: -1.1s; }
-.motion .wish__star:nth-child(3) svg { animation-delay: -2.2s; }
-@keyframes twinkle { 0%, 100% { opacity: .55; transform: scale(.85); } 50% { opacity: 1; transform: scale(1.1); } }
-.wish__star:hover svg { transform: scale(1.3) rotate(15deg); }
-.wish__star.is-wrong svg { animation: nope .45s ease-in-out !important; }
-@keyframes nope { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
-.wish__star.is-chosen svg { animation: chosen .45s var(--ease-out) forwards !important; color: var(--pink); }
-@keyframes chosen { to { transform: scale(3) rotate(90deg); opacity: 0; } }
+.wish__star { width: 44px; height: 44px; display: grid; place-items: center; border: 0; background: none; padding: 0; cursor: default; color: var(--yellow); border-radius: 50%; -webkit-tap-highlight-color: transparent; }
+.wish__star:focus { outline: none; }
+.wish__star svg { width: 14px; height: 14px; opacity: .7; }
+.motion .wish__star svg { animation: twinkle 3.6s ease-in-out infinite; }
+.motion .wish__star:nth-child(2) svg { animation-delay: -1.2s; }
+.motion .wish__star:nth-child(3) svg { animation-delay: -2.4s; }
+@keyframes twinkle { 0%, 100% { opacity: .45; } 50% { opacity: .85; } }
 
 /* =====================================================================
    SPECIAL SPACE (special.html) — Planet Zorgon at night
@@ -735,3 +731,6 @@ code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: .88em;
 
 .prose strong { font-weight: 760; }
 .about .prose strong { color: var(--blue); }
+
+/* wrong-password wiggle on the secret page gate */
+@keyframes nope { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }

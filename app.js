@@ -179,15 +179,11 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
-  /* ---------- three stars: only the RIGHT one (the one on the right) leads somewhere ---------- */
+  /* ---------- three stars: only the one on the right leads somewhere; the others do nothing ---------- */
   document.querySelectorAll(".wish__star").forEach((b) => b.addEventListener("click", () => {
-    if (b.dataset.star === "3") {
-      try { sessionStorage.setItem("pz-star", "1"); } catch (e) {}
-      b.classList.add("is-chosen");
-      setTimeout(() => (location.href = "special.html"), reduceMotion ? 0 : 450);
-    } else {
-      b.classList.remove("is-wrong"); void b.offsetWidth; b.classList.add("is-wrong");
-    }
+    if (b.dataset.star !== "3") return;
+    try { sessionStorage.setItem("pz-star", "1"); } catch (e) {}
+    location.href = "special.html";
   }));
 
   /* ---------- the one big moment: the planet prints itself into register ---------- */

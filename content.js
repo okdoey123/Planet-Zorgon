@@ -80,7 +80,7 @@ const GAMES = [
     "image": "images/valor-mortis.jpg",
     "score": 3,
     "verdict": "Napoleon and his small dick energy",
-    "review": "",
+    "review": "This game is about what happens if Napoleon was a dictator. I know, shocking, right? It is a first-person Soulslike that works fundamentally fine and is enjoyable at its core. It feels like a mixed dish of BioShock, Soulslikes and a little Dishonored, although the stealth sucks.\n\nThe levels stretch on for too long, and the bosses are way too easy, except for a few in the middle that just spike in difficulty. But despite all those issues, it is still fun to kill the French, because fuck the French.\n\nOverall, if you have Game Pass, give this one a try, because the parrying and the swordplay are genuinely pretty fun. If it were a dish, I would say it's a hamburger: simple, easy, and it gets the job done.",
     "credits": [
       [
         "Developer",

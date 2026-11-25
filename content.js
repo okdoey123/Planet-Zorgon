@@ -53,6 +53,7 @@ This is where I keep track of what I love and what's slowly ruining my week. No 
    SHIT I LIKE — MOVIES
    score = 1 to 5 (how many planets it gets)
    Each item gets its own review page automatically.
+   Add  date: "YYYY-MM-DD",  (the day you post it) so email subscribers get it in order.
    Optional: add  credits: [["Director", `Name`]],  for extra facts.
    --------------------------------------------------------------------- */
 const MOVIES = [
@@ -115,6 +116,7 @@ const COMICS = [
   {
     title: `Batman: Arkham Asylum — A Serious House on Serious Earth`,
     year: `1989`,
+    date: "2026-11-25",                  // the day you posted it (YYYY-MM-DD), used for email updates
     image: "images/arkham-asylum.jpg",   // save the cover with exactly this name in the images folder
     score: 4,
     verdict: `Loved it when Joker said "Why so serious" and made out with Batman`,

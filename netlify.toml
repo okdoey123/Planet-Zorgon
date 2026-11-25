@@ -1,0 +1,4 @@
+# Netlify settings. On every deploy, rebuild the RSS feed from content.js.
+[build]
+  command = "node tools/build-feed.mjs"
+  publish = "."

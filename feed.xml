@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Planet Zorgon</title>
+  <link>https://planetzorgon.netlify.app/</link>
+  <description>Population: one. Reviews of shit I like, plus a daily log of my miseries, broadcast to whoever&apos;s listening.</description>
+  <language>en</language>
+  <atom:link href="https://planetzorgon.netlify.app/feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>Comic review: Batman: Arkham Asylum — A Serious House on Serious Earth</title>
+    <link>https://planetzorgon.netlify.app/review.html#comics--batman-arkham-asylum-a-serious-house-on-serious-earth</link>
+    <guid isPermaLink="true">https://planetzorgon.netlify.app/review.html#comics--batman-arkham-asylum-a-serious-house-on-serious-earth</guid>
+    <pubDate>Wed, 25 Nov 2026 06:00:00 GMT</pubDate>
+    <description>Loved it when Joker said &quot;Why so serious&quot; and made out with Batman
+
+It is good for now.</description>
+  </item>
+</channel>
+</rss>

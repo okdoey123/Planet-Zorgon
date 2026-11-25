@@ -78,7 +78,7 @@ const GAMES = [
     "year": "2026",
     "date": "2026-11-25",
     "image": "",
-    "score": 4,
+    "score": 3,
     "verdict": "Napoleon and his small dick energy",
     "review": "",
     "credits": [

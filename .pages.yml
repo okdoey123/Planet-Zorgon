@@ -1,0 +1,262 @@
+# Pages CMS settings for Planet Zorgon (edit your site at https://app.pagescms.org)
+# Each section below becomes a form in the editor. Saving commits to GitHub,
+# and Cloudflare publishes the change about a minute later.
+
+media:
+  input: images
+  output: /images
+  categories:
+  - image
+content:
+- name: miseries
+  label: Daily Miseries
+  type: file
+  path: content/miseries.json
+  format: json
+  list: true
+  fields:
+  - name: date
+    label: Date
+    type: date
+    required: true
+    options:
+      format: yyyy-MM-dd
+  - name: title
+    label: Title
+    type: string
+    required: true
+  - name: misery
+    label: Misery level
+    type: select
+    default: '3'
+    options:
+      values:
+      - name: '1'
+        label: 1 · Mildly cursed
+      - name: '2'
+        label: 2 · Meh
+      - name: '3'
+        label: 3 · Grim
+      - name: '4'
+        label: 4 · Doomed
+      - name: '5'
+        label: 5 · Total eclipse
+  - name: image
+    label: Picture (optional)
+    type: image
+  - name: text
+    label: What happened (blank line = new paragraph, **double stars** = bold)
+    type: text
+  - name: sample
+    label: Show "Sample — replace me" sticker
+    type: boolean
+- name: shit-i-like
+  label: Shit I Like
+  type: group
+  items:
+  - name: movies
+    label: Movies
+    type: file
+    path: content/movies.json
+    format: json
+    list: true
+    fields:
+    - name: title
+      label: Title
+      type: string
+      required: true
+    - name: year
+      label: Year it came out
+      type: string
+    - name: date
+      label: Date you posted it (newest shows first, and goes out by email)
+      type: date
+      options:
+        format: yyyy-MM-dd
+    - name: image
+      label: Poster / cover / screenshot
+      type: image
+    - name: score
+      label: Zorgon score (planets)
+      type: select
+      default: '4'
+      options:
+        values:
+        - '1'
+        - '2'
+        - '3'
+        - '4'
+        - '5'
+    - name: verdict
+      label: One-line verdict (shown on the card and as the speech bubble)
+      type: string
+    - name: review
+      label: Full review (blank line = new paragraph, **double stars** = bold)
+      type: text
+    - name: credits
+      label: Extra facts (optional), e.g. Director, Studio
+      type: object
+      list: true
+      fields:
+      - name: label
+        label: Label
+        type: string
+      - name: value
+        label: Value
+        type: string
+    - name: sample
+      label: Show "Sample — replace me" sticker
+      type: boolean
+  - name: games
+    label: Games
+    type: file
+    path: content/games.json
+    format: json
+    list: true
+    fields:
+    - name: title
+      label: Title
+      type: string
+      required: true
+    - name: year
+      label: Year it came out
+      type: string
+    - name: date
+      label: Date you posted it (newest shows first, and goes out by email)
+      type: date
+      options:
+        format: yyyy-MM-dd
+    - name: image
+      label: Poster / cover / screenshot
+      type: image
+    - name: score
+      label: Zorgon score (planets)
+      type: select
+      default: '4'
+      options:
+        values:
+        - '1'
+        - '2'
+        - '3'
+        - '4'
+        - '5'
+    - name: verdict
+      label: One-line verdict (shown on the card and as the speech bubble)
+      type: string
+    - name: review
+      label: Full review (blank line = new paragraph, **double stars** = bold)
+      type: text
+    - name: credits
+      label: Extra facts (optional), e.g. Director, Studio
+      type: object
+      list: true
+      fields:
+      - name: label
+        label: Label
+        type: string
+      - name: value
+        label: Value
+        type: string
+    - name: sample
+      label: Show "Sample — replace me" sticker
+      type: boolean
+  - name: comics
+    label: Comics
+    type: file
+    path: content/comics.json
+    format: json
+    list: true
+    fields:
+    - name: title
+      label: Title
+      type: string
+      required: true
+    - name: year
+      label: Year it came out
+      type: string
+    - name: date
+      label: Date you posted it (newest shows first, and goes out by email)
+      type: date
+      options:
+        format: yyyy-MM-dd
+    - name: image
+      label: Poster / cover / screenshot
+      type: image
+    - name: score
+      label: Zorgon score (planets)
+      type: select
+      default: '4'
+      options:
+        values:
+        - '1'
+        - '2'
+        - '3'
+        - '4'
+        - '5'
+    - name: verdict
+      label: One-line verdict (shown on the card and as the speech bubble)
+      type: string
+    - name: review
+      label: Full review (blank line = new paragraph, **double stars** = bold)
+      type: text
+    - name: credits
+      label: Extra facts (optional), e.g. Director, Studio
+      type: object
+      list: true
+      fields:
+      - name: label
+        label: Label
+        type: string
+      - name: value
+        label: Value
+        type: string
+    - name: sample
+      label: Show "Sample — replace me" sticker
+      type: boolean
+- name: site
+  label: About Me & site
+  type: file
+  path: content/site.json
+  format: json
+  fields:
+  - name: name
+    label: Site name
+    type: string
+  - name: tagline
+    label: Tagline (under the big title)
+    type: text
+  - name: about
+    label: About Me
+    type: object
+    fields:
+    - name: heading
+      label: Heading
+      type: string
+    - name: photo
+      label: Your photo (passport card)
+      type: image
+    - name: bio
+      label: Bio (blank line = new paragraph, **double stars** = bold)
+      type: text
+    - name: passport
+      label: Passport card lines
+      type: object
+      list: true
+      fields:
+      - name: label
+        label: Label
+        type: string
+      - name: value
+        label: Value
+        type: string
+    - name: morePhotos
+      label: Extra photos (up to 3 look best)
+      type: object
+      list: true
+      fields:
+      - name: image
+        label: Photo
+        type: image
+      - name: caption
+        label: Caption
+        type: string

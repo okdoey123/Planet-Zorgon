@@ -1,0 +1,25 @@
+[
+  {
+    "title": "Batman: Arkham Asylum — A Serious House on Serious Earth",
+    "year": "1989",
+    "date": "2026-11-25",
+    "image": "images/arkham-asylum.jpg",
+    "score": "4",
+    "verdict": "Loved it when Joker said \"Why so serious\" and made out with Batman",
+    "review": "It is good for now.",
+    "credits": [
+      {
+        "label": "Writer",
+        "value": "Grant Morrison"
+      },
+      {
+        "label": "Artist",
+        "value": "Dave McKean"
+      },
+      {
+        "label": "Publisher",
+        "value": "DC Comics"
+      }
+    ]
+  }
+]

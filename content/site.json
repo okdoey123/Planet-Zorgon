@@ -1,0 +1,45 @@
+{
+  "name": "Planet Zorgon",
+  "tagline": "Population: one. Reviews of shit I like, plus a daily log of my miseries, broadcast to whoever's listening.",
+  "about": {
+    "heading": "About Me",
+    "photo": "images/me.jpg",
+    "bio": "People love to form unnecessary opinions on things, but modern society does not let you let them out. This is a place for me to let it out, not you guys. You guys can see me let it out.\n\nI realize this is the most 2010 thing I can do, and that is fine. **To catch up with time, you have to run behind it first** (this line is trademarked; for making it a T-shirt, contact me).\n\nSo sit back and enjoy Planet Zorgon in all its glory and infamy. And if, for God's sake, I keep this shit running for even a week, I will consider it a success.",
+    "passport": [
+      {
+        "label": "Name",
+        "value": "Leader of Zorgon"
+      },
+      {
+        "label": "Species",
+        "value": "Human (allegedly)"
+      },
+      {
+        "label": "Inhabitant since",
+        "value": "2026"
+      },
+      {
+        "label": "Runs on",
+        "value": "Daily affirmations by Salman Khan"
+      },
+      {
+        "label": "Weakness",
+        "value": "Shirtless Amitabh"
+      }
+    ],
+    "morePhotos": [
+      {
+        "image": "",
+        "caption": "Me, on a good day"
+      },
+      {
+        "image": "",
+        "caption": "Me, on a normal day"
+      },
+      {
+        "image": "",
+        "caption": "Evidence"
+      }
+    ]
+  }
+}

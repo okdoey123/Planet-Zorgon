@@ -1,0 +1,24 @@
+[
+  {
+    "title": "Mad Max: Fury Road",
+    "year": "2015",
+    "date": "",
+    "image": "",
+    "score": "5",
+    "verdict": "Two hours of screaming in the best possible way.",
+    "review": "This is a sample review. Write what you actually felt, not what a critic would say.\n\nWhat stuck with you after the credits? Which scene would you show a friend first? Who should skip it?\n\nA good review here is three short paragraphs. Nobody's grading you.",
+    "credits": [],
+    "sample": true
+  },
+  {
+    "title": "Spirited Away",
+    "year": "2001",
+    "date": "",
+    "image": "",
+    "score": "4",
+    "verdict": "Comfort food that is also slightly terrifying.",
+    "review": "Another sample review. Swap in your own movie, year, picture and score.\n\nTip: start with the one sentence you'd text a friend about it. That's your verdict line.",
+    "credits": [],
+    "sample": true
+  }
+]

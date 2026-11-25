@@ -1,11 +1,24 @@
 # Planet Zorgon: how to run your website
 
-You don't need to know how to code. You'll only ever touch **two things**:
+## The easy way: Pages CMS (forms, no code)
 
-- `content.js`: all your words (About Me, reviews, Daily Miseries)
-- `images/`: all your pictures
+1. Go to **https://app.pagescms.org** and click **Sign in with GitHub** (account okdoey123).
+2. Open **Planet-Zorgon**. You'll see: **Daily Miseries**, **Shit I Like** (Movies / Games / Comics),
+   and **About Me & site**.
+3. Click **Add** to make a new entry, fill in the form, upload a picture, and click **Save**.
+4. About a minute later your live site (https://planet-zorgon.pages.dev) updates, and the
+   email feed refreshes so follow.it can email your subscribers.
 
-Leave `index.html`, `review.html`, `styles.css`, `app.js`, `shared.js`, `review.js` and `fonts/` alone.
+Tips:
+- Always fill in the **Date**. Newest dates show first, and dates decide what goes out by email.
+- Blank line = new paragraph. `**double stars**` = bold.
+- The secret page isn't in the editor (it's encrypted). Ask Claude to update it.
+
+## Where things live (if you ever edit files directly)
+
+- `content/` holds all your words, as `.json` files (this is what Pages CMS edits)
+- `images/` holds all your pictures
+- `content.js` and `feed.xml` are **generated automatically** on every publish, so don't edit them
 
 ---
 

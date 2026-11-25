@@ -138,29 +138,14 @@ const COMICS = [
    --------------------------------------------------------------------- */
 const MISERIES = [
   {
-    sample: true,
     date: "2026-11-25",
-    title: `Built a planet at 2am`,
-    misery: 2,
-    image: "",
-    text: `This is a sample entry. Today I decided I needed a website instead of sleep.
-
-Write as much or as little as you want. One line counts. A rant counts. A list of everything that went wrong counts.`,
-  },
-  {
-    sample: true,
-    date: "2026-11-24",
-    title: `The Wi-Fi has chosen violence`,
+    title: `Day 1: What a fuckall start`,
     misery: 4,
     image: "",
-    text: `Sample entry. Buffering wheel: 1. Me: 0.`,
-  },
-  {
-    sample: true,
-    date: "2026-11-23",
-    title: `Monday, but on a Sunday`,
-    misery: 3,
-    image: "",
-    text: `Sample entry. Replace or delete me.`,
+    text: `I made this website at 2:30 am and at 8:37 my fucking sink fell.
+
+Are these events correlated? Abso-fucking-lutely yes. This is a sign from God.
+
+Or maybe the sign is that I should brush my teeth regularly.`,
   },
 ];

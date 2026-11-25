@@ -15,7 +15,9 @@ window.PZ = (function () {
   if (!site) document.addEventListener("DOMContentLoaded", showOops), showOops();
 
   const esc = (t) => String(t ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-  const paras = (t) => String(t ?? "").trim().split(/\n\s*\n/).map((p) => `<p>${esc(p.trim()).replace(/\n/g, "<br>")}</p>`).join("");
+  // Paragraphs from blank lines. **like this** = bold (escaped first, so no other HTML gets through).
+  const inline = (t) => esc(t).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  const paras = (t) => String(t ?? "").trim().split(/\n\s*\n/).map((p) => `<p>${inline(p.trim()).replace(/\n/g, "<br>")}</p>`).join("");
   const slug = (t) => String(t ?? "").toLowerCase().normalize("NFKD").replace(/[^\w\s-]/g, "").trim().replace(/[\s_]+/g, "-").replace(/-+/g, "-").slice(0, 60).replace(/-$/, "") || "item";
   const clamp = (n, lo, hi) => Math.max(lo, Math.min(hi, Number(n) || 0));
   const icon = (id, cls = "") => `<svg class="${cls}" aria-hidden="true"><use href="#${id}"/></svg>`;

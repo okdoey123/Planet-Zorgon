@@ -284,7 +284,7 @@ code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: .88em;
 .passport__fields div { display: grid; gap: 0; }
 .passport__fields dt { font-size: .72rem; font-weight: 700; font-stretch: 78%; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
 .passport__fields dd { margin: 0; font-weight: 650; line-height: 1.25; overflow-wrap: anywhere; }
-.passport__stamp { position: absolute; right: -26px; bottom: -34px; width: 124px; color: #c21d73; transform: rotate(14deg); mix-blend-mode: multiply; opacity: .92; font-family: var(--body); font-weight: 800; font-stretch: 75%; }
+.passport__stamp { position: absolute; right: -30px; bottom: -64px; width: 124px; color: #c21d73; transform: rotate(14deg); mix-blend-mode: multiply; opacity: .92; font-family: var(--body); font-weight: 800; font-stretch: 75%; }
 .passport__stamp svg { width: 100%; height: auto; display: block; }
 
 .evidence { list-style: none; margin: var(--s9) auto 0; padding: 0; max-width: 1180px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--s6); }
@@ -732,3 +732,6 @@ code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: .88em;
   .signal__form { grid-template-columns: 1fr; border-radius: 22px; }
   .signal__btn { width: 100%; }
 }
+
+.prose strong { font-weight: 760; }
+.about .prose strong { color: var(--blue); }

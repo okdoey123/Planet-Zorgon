@@ -7,6 +7,7 @@
    1. Text goes between backticks `like this`. Apostrophes are fine inside.
    2. Every { ... } block ends with a comma  },  before the next one.
    3. Leave a blank line inside a review to start a new paragraph.
+      Wrap words in double stars to make them bold: **like this**
    4. Pictures: put the file in the "images" folder, then write
       image: "images/your-file.jpg"
       No picture yet? Leave it as  image: ""  — a placeholder shows up.
@@ -23,22 +24,21 @@ const SITE = {
    ABOUT ME
    --------------------------------------------------------------------- */
 const ABOUT = {
-  photo: "",                       // e.g. "images/me.jpg"  (a portrait, face clearly visible)
+  photo: "images/me.jpg",          // a portrait, face clearly visible
   heading: `About Me`,
   bio: `People love to make unnecessary opinions on things but modern society does not let you let it out. This is a place for me to let it out not you guys. You guys can see me let it out.
 
-I realize this is the most 2010 thing i can do and that is fine. to catch up with time you have run behind it first (this line is trademarked, for making it a t shirt contact me).
+I realize this is the most 2010 thing i can do and that is fine. **to catch up with time you have run behind it first** (this line is trademarked, for making it a t shirt contact me).
 
 So sit back and enjoy planet zorgon for all its glory and infamy. and if for gods sake i keep this shit running for even a week I will consider it a success.`,
 
   // The little "alien passport" card. Change the right-hand side of each line.
   passport: [
-    ["Name",            `Your Name`],
+    ["Name",            `Leader of Zorgon`],
     ["Species",         `Human (allegedly)`],
-    ["Home base",       `Your City`],
     ["Inhabitant since",`2026`],
-    ["Runs on",         `Chai and spite`],
-    ["Weakness",        `Sequels`],
+    ["Runs on",         `Daily affirmations by Salman Khan`],
+    ["Weakness",        `Shirtless Amitabh`],
   ],
 
   // Extra photos of you (up to 3 look best). Leave the list empty [] for none.

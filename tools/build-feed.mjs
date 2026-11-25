@@ -4,7 +4,7 @@
 import fs from "node:fs";
 import vm from "node:vm";
 
-const SITE = "https://planetzorgon.netlify.app";
+const SITE = "https://planet-zorgon.pages.dev";
 const ctx = {}; vm.createContext(ctx);
 vm.runInContext(fs.readFileSync("content.js", "utf8") + "\n;this.__C = { SITE, MOVIES, GAMES, COMICS, MISERIES };", ctx);
 const C = ctx.__C;

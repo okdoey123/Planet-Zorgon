@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://planetzorgon.netlify.app/sitemap.xml
+Sitemap: https://planet-zorgon.pages.dev/sitemap.xml

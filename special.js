@@ -75,7 +75,10 @@
     if (wall) $("#sp-wall").innerHTML = wall; else $("#sp-wall-sec").remove();
     $("#sp-final").innerHTML = pola(SP.finalPhoto, "pola--final", -3);
   }
-  const viewer = $("#viewer"), vImg = $("#viewer-img"), vCount = $("#viewer-count");
+  const viewer = $("#viewer"), vCount = $("#viewer-count");
+  const vImg = document.createElement("img");   // created here so the page never ships an empty <img>
+  vImg.alt = "Photo of us";
+  $("#viewer-fig").prepend(vImg);
   let vAt = 0, vFrom = null;
   function show(i) {
     vAt = (i + PHOTOS.length) % PHOTOS.length;

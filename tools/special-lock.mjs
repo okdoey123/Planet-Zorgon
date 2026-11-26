@@ -8,7 +8,7 @@ import path from "node:path";
 import vm from "node:vm";
 import { webcrypto as crypto } from "node:crypto";
 
-const ITER = 310000;
+const ITER = 600000; // PBKDF2-SHA256 iterations (OWASP 2023+ recommendation)
 const [, , mode, password, file] = process.argv;
 if (!mode || !password) { console.error("usage: lock <password> <content.js> | unlock <password> [out]"); process.exit(1); }
 const pw = password.trim().toLowerCase();
@@ -31,8 +31,13 @@ if (mode === "lock") {
   const ctx = {}; vm.createContext(ctx);
   vm.runInContext(fs.readFileSync(file, "utf8") + "\n;this.__S = SPECIAL;", ctx);
   const S = JSON.parse(JSON.stringify(ctx.__S));
-  S.photo = inline(S.photo);
-  (S.watchlist || []).forEach((w) => (w.image = inline(w.image)));
+  // Embed every picture the content points to (any value ending in an image extension), so no
+  // photo ever exists as a separate public file. Unlocking reveals them; without the password they don't exist.
+  const IMG = /\.(jpe?g|png|webp|gif)$/i;
+  const walk = (v) => Array.isArray(v) ? v.map(walk)
+    : v && typeof v === "object" ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, walk(x)]))
+    : typeof v === "string" && IMG.test(v) ? inline(v) : v;
+  Object.assign(S, walk(S));
   const salt = crypto.getRandomValues(new Uint8Array(16));
   const iv = crypto.getRandomValues(new Uint8Array(12));
   const data = new Uint8Array(await crypto.subtle.encrypt({ name: "AES-GCM", iv }, await keyFor(salt), new TextEncoder().encode(JSON.stringify(S))));

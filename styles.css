@@ -734,3 +734,81 @@ code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: .88em;
 
 /* wrong-password wiggle on the secret page gate */
 @keyframes nope { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+
+/* =====================================================================
+   SPECIAL PAGE PHOTOS: taped polaroids spread across the page
+   ===================================================================== */
+.pola {
+  position: relative; display: block; padding: 8px 8px 26px; border: 0; margin: 0;
+  background: var(--paper); border-radius: 3px; cursor: zoom-in;
+  box-shadow: 0 2px 4px rgba(0,0,0,.18), 0 16px 34px -12px rgba(0,0,0,.55);
+  transform: rotate(var(--r, 0deg)); transition: transform .45s var(--ease-out), box-shadow .45s var(--ease-out);
+}
+.pola img { display: block; width: 100%; height: auto; border-radius: 2px; background: #ddd; }
+.pola::before { /* a strip of washi tape */
+  content: ""; position: absolute; top: -10px; left: 50%; width: 58px; height: 20px;
+  transform: translateX(-50%) rotate(-4deg);
+  background: rgba(255, 210, 63, .78); box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+.pola:nth-of-type(even)::before { background: rgba(255, 159, 205, .8); transform: translateX(-50%) rotate(5deg); }
+.pola:hover, .pola:focus-visible { transform: rotate(0deg) scale(1.04); z-index: 3; box-shadow: 0 4px 8px rgba(0,0,0,.2), 0 26px 50px -14px rgba(0,0,0,.6); }
+.pola:focus-visible { outline: 3px solid var(--yellow); outline-offset: 4px; }
+#sp-photo[data-pi] { cursor: zoom-in; }
+
+/* 1. two photos taped in the night sky beside the planet */
+.sp-planet { position: relative; }
+.sp-sky .pola { position: absolute; width: clamp(110px, 15vw, 190px); z-index: 2; }
+.sp-sky .pola--sky1 { top: 2%; left: -4%; }
+.sp-sky .pola--sky2 { bottom: 4%; right: -2%; }
+.sp-sky .pola img { aspect-ratio: 4 / 5; object-fit: cover; }
+
+/* 2. two small photos taped onto the note */
+.sp-letter { position: relative; }
+.sp-taped { float: right; display: flex; gap: var(--s3); margin: calc(var(--s3) * -1) calc(var(--s3) * -1) var(--s4) var(--s5); shape-outside: margin-box; }
+.sp-taped .pola { width: clamp(100px, 13vw, 150px); }
+.sp-taped .pola img { aspect-ratio: 1; object-fit: cover; }
+.sp-taped .pola--taped2 { margin-top: var(--s5); }
+
+/* 3. the evidence wall: a night-sky board of scattered polaroids */
+.sp-wall { position: relative; background: var(--ink); color: var(--paper); padding: var(--s9) var(--gutter) var(--s10); }
+.sp-wall::before {
+  content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 28px; background: var(--pink);
+  -webkit-mask: radial-gradient(14px 14px at 14px 0, #000 98%, transparent) 0 0 / 28px 28px repeat-x;
+          mask: radial-gradient(14px 14px at 14px 0, #000 98%, transparent) 0 0 / 28px 28px repeat-x;
+}
+.sp-wall .display { max-width: 1180px; margin: 0 auto var(--s3); font-size: clamp(2.2rem, 6vw, 4.4rem); color: var(--yellow); text-shadow: .05em .045em 0 var(--pink); }
+.sp-wall__sub { max-width: 1180px; margin: 0 auto var(--s7); color: #c9cfff; font-weight: 600; font-stretch: 85%; }
+.sp-wall__grid { max-width: 1180px; margin: 0 auto; columns: 4 220px; column-gap: var(--s6); }
+.sp-wall__grid .pola { width: 100%; margin: 0 0 var(--s7); break-inside: avoid; }
+.sp-watch::before { background: var(--ink) !important; } /* scallop now follows the dark wall */
+
+/* 4. one last photo above "Only for you." */
+.sp-final { display: flex; justify-content: center; margin-bottom: var(--s5); }
+.sp-final .pola { width: clamp(180px, 30vw, 280px); }
+
+/* photo viewer */
+.viewer { width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: transparent; overflow: hidden; }
+.viewer::backdrop { background: rgba(10, 11, 40, .94); }
+.viewer[open] { display: grid; place-items: center; }
+.viewer__fig { margin: 0; display: grid; justify-items: center; gap: var(--s3); }
+.viewer__fig img { max-width: min(92vw, 1100px); max-height: 82dvh; width: auto; height: auto; border: 8px solid var(--paper); border-radius: 4px; box-shadow: 0 30px 80px -20px rgba(0,0,0,.8); }
+.viewer__fig figcaption { color: #c9cfff; font-weight: 700; font-stretch: 80%; letter-spacing: .08em; font-variant-numeric: tabular-nums; }
+.viewer__btn { position: fixed; z-index: 2; width: 52px; height: 52px; border: 0; border-radius: 50%; display: grid; place-items: center; cursor: pointer; background: var(--paper); color: var(--ink); box-shadow: 0 8px 24px -8px rgba(0,0,0,.6); transition: transform .3s var(--ease-out), background-color .2s; }
+.viewer__btn:hover { background: var(--yellow); transform: scale(1.06); }
+.viewer__btn svg { width: 22px; height: 22px; }
+.viewer__close { top: var(--s4); right: var(--s4); }
+.viewer__prev { left: var(--s4); top: 50%; translate: 0 -50%; }
+.viewer__next { right: var(--s4); top: 50%; translate: 0 -50%; }
+.viewer[open] .viewer__fig { animation: fade-up .35s var(--ease-out); }
+
+@media (max-width: 860px) {
+  .sp-sky .pola { width: clamp(92px, 26vw, 140px); }
+  .sp-sky .pola--sky1 { top: 0; left: 0; }
+  .sp-sky .pola--sky2 { bottom: 0; right: 0; }
+}
+@media (max-width: 560px) {
+  .sp-taped { float: none; justify-content: center; margin: calc(var(--s2) * -1) 0 var(--s5); }
+  .sp-wall__grid { columns: 2; column-gap: var(--s4); }
+  .sp-wall__grid .pola { margin-bottom: var(--s5); padding: 5px 5px 16px; }
+  .viewer__prev, .viewer__next { top: auto; bottom: var(--s5); translate: none; }
+}

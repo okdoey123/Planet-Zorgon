@@ -30,6 +30,9 @@
       <rect x="4.5" y="10.5" width="15" height="10.5" rx="2.5" fill="currentColor"/>
       <path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" fill="none" stroke="currentColor" stroke-width="2.4"/>
     </symbol>
+    <symbol id="i-close" viewBox="0 0 24 24">
+      <path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+    </symbol>
     <symbol id="i-check" viewBox="0 0 24 24">
       <path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
@@ -74,8 +77,9 @@
       <h1 class="sp-title" id="sp-title"></h1>
       <p class="sp-for">For <span id="sp-name"></span></p>
     </div>
-    <div class="sp-planet" aria-hidden="true">
-      <svg viewBox="0 0 600 600" class="planet" id="sp-planet"></svg>
+    <div class="sp-planet">
+      <svg viewBox="0 0 600 600" class="planet" id="sp-planet" aria-hidden="true"></svg>
+      <div class="sp-sky" id="sp-sky"></div>
     </div>
   </section>
 
@@ -86,11 +90,18 @@
         <figcaption id="sp-caption"></figcaption>
       </figure>
       <article class="sheet sp-letter">
+        <div class="sp-taped" id="sp-taped"></div>
         <h2 class="sp-h" id="sp-note-h">A note for you</h2>
         <div class="prose" id="sp-letter"></div>
         <p class="sp-sign" id="sp-sign"></p>
       </article>
     </div>
+  </section>
+
+  <section class="sp-wall" id="sp-wall-sec" aria-labelledby="sp-wall-h">
+    <h2 class="display" id="sp-wall-h">Evidence of us</h2>
+    <p class="sp-wall__sub">Tap any photo to see it big.</p>
+    <div class="sp-wall__grid" id="sp-wall"></div>
   </section>
 
   <section class="sp-watch" aria-labelledby="sp-watch-h">
@@ -107,10 +118,18 @@
   </section>
 
   <footer class="foot">
+    <div class="sp-final" id="sp-final"></div>
     <p class="foot__end">Only for you.</p>
     <p class="foot__small"><a href="index.html#top">Back to Planet Zorgon</a></p>
   </footer>
 </div>
+
+<dialog class="viewer" id="viewer" aria-label="Photo viewer">
+  <button class="viewer__btn viewer__close" type="button" data-v="close" aria-label="Close"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+  <button class="viewer__btn viewer__prev" type="button" data-v="prev" aria-label="Previous photo"><svg class="flip" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+  <figure class="viewer__fig"><img id="viewer-img" alt=""><figcaption id="viewer-count"></figcaption></figure>
+  <button class="viewer__btn viewer__next" type="button" data-v="next" aria-label="Next photo"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+</dialog>
 
 <div class="oops" id="oops" role="alert" hidden></div>
 

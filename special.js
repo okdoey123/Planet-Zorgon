@@ -55,6 +55,50 @@
     });
   }
 
+  /* ---------- photos spread across the page, plus a tap-to-enlarge viewer ---------- */
+  // Every photo arrives inside the decrypted content as a data: URL. Nothing is fetched from anywhere.
+  const PHOTOS = [];
+  const isPic = (u) => typeof u === "string" && /^data:image\//.test(u);
+  function pola(src, cls, rot) {
+    if (!isPic(src)) return "";
+    const i = PHOTOS.push(src) - 1;
+    return `<button type="button" class="pola ${cls}" data-pi="${i}" style="--r:${rot}deg" aria-label="Open photo ${i + 1}"><img src="${src}" alt="" decoding="async"></button>`;
+  }
+  const ROT = [-6, 4, -3, 7, -5, 2, -8, 5, -2, 6, -4, 3, -7];
+  function placePhotos() {
+    if (isPic(SP.photo)) PHOTOS.push(SP.photo);              // main photo by the note (index 0)
+    const mainBox = $("#sp-photo");
+    if (isPic(SP.photo)) { mainBox.dataset.pi = "0"; mainBox.setAttribute("role", "button"); mainBox.tabIndex = 0; mainBox.setAttribute("aria-label", "Open photo 1"); }
+    $("#sp-sky").innerHTML = (SP.skyPhotos || []).map((u, i) => pola(u, `pola--sky pola--sky${i + 1}`, i ? 9 : -11)).join("");
+    $("#sp-taped").innerHTML = (SP.letterPhotos || []).map((u, i) => pola(u, `pola--taped pola--taped${i + 1}`, i ? 6 : -5)).join("");
+    const wall = (SP.wallPhotos || []).map((u, i) => pola(u, "pola--wall", ROT[i % ROT.length])).join("");
+    if (wall) $("#sp-wall").innerHTML = wall; else $("#sp-wall-sec").remove();
+    $("#sp-final").innerHTML = pola(SP.finalPhoto, "pola--final", -3);
+  }
+  const viewer = $("#viewer"), vImg = $("#viewer-img"), vCount = $("#viewer-count");
+  let vAt = 0, vFrom = null;
+  function show(i) {
+    vAt = (i + PHOTOS.length) % PHOTOS.length;
+    vImg.src = PHOTOS[vAt];
+    vCount.textContent = `${vAt + 1} / ${PHOTOS.length}`;
+  }
+  document.addEventListener("click", (e) => {
+    const t = e.target.closest("[data-pi]");
+    if (t && !viewer.open) { vFrom = t; show(+t.dataset.pi); viewer.showModal(); return; }
+    const b = e.target.closest("[data-v]");
+    if (b) { if (b.dataset.v === "close") viewer.close(); else show(vAt + (b.dataset.v === "next" ? 1 : -1)); return; }
+    if (e.target === viewer) viewer.close();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (viewer.open && (e.key === "ArrowRight" || e.key === "ArrowLeft")) { e.preventDefault(); show(vAt + (e.key === "ArrowRight" ? 1 : -1)); }
+    const t = e.target.closest && e.target.closest('[data-pi][role="button"]');
+    if (t && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); t.click(); }
+  });
+  viewer.addEventListener("close", () => { vImg.removeAttribute("src"); if (vFrom) vFrom.focus({ preventScroll: true }); });
+  let tx = null;
+  viewer.addEventListener("touchstart", (e) => { tx = e.touches[0].clientX; }, { passive: true });
+  viewer.addEventListener("touchend", (e) => { if (tx == null) return; const d = e.changedTouches[0].clientX - tx; if (Math.abs(d) > 50) show(vAt + (d < 0 ? 1 : -1)); tx = null; });
+
   /* ---------- the page itself ---------- */
   function reveal() {
     $("#gate").remove();
@@ -66,6 +110,7 @@
     $("#sp-name").textContent = SP.name || "you";
     $("#sp-planet").innerHTML = PZ.buildPlanet("special", { burst: false });
     $("#sp-photo").innerHTML = picture(SP.photo, SP.photoCaption || "Photo", "Their photo here");
+    placePhotos();
     $("#sp-caption").textContent = SP.photoCaption || "";
     $("#sp-letter").innerHTML = paras(SP.letter);
     $("#sp-sign").textContent = SP.sign || "";

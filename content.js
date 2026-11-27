@@ -50,6 +50,29 @@ const ABOUT = {
 };
 const MOVIES = [
   {
+    "title": "Clayface",
+    "year": "2026",
+    "date": "2026-11-28",
+    "image": "images/clayface.jpg",
+    "score": 4,
+    "verdict": "Man, if he's made of clay, why the fuck don't they throw water on him?",
+    "review": "This new era of DC, which ended before it could even start, was really cooking some good shit. I watched this recently in theatres and, man, it really delivered. Some scenes felt rushed, especially for an origin story, but once it finally picked up the pace, it really stuck with it. It doesn't pull any punches in showing how fucked up Clayface actually is.\n\nClayface is one of those villains who is more tragic than evil, and the movie actually tries to show that. I appreciate that they stuck with the original material. It has some great acting by Tom Rhys Harries (yes, I looked it up on Google). He really gets that good-looking-asshole role right.\n\nI hope this gets tied into Robert Pattinson's Batman, but hey, that is definitely not happening because, guess what, they fired James Gunn.",
+    "credits": [
+      [
+        "Director",
+        "James Watkins"
+      ],
+      [
+        "Starring",
+        "Tom Rhys Harries"
+      ],
+      [
+        "Writers",
+        "Mike Flanagan, Hossein Amini"
+      ]
+    ]
+  },
+  {
     "title": "Evil Dead II",
     "year": "1987",
     "date": "2026-11-28",

@@ -72,7 +72,7 @@
       s.planet.style.transform = `translate3d(0, ${p * 90}px, 0) rotate(${p * -24}deg) scale(${1 - p * 0.18})`;
       if (s.copy) { s.copy.style.transform = `translate3d(0, ${p * -50}px, 0)`; s.copy.style.opacity = String(1 - p * 0.7); }
       if (s.far) s.far.style.transform = `translate3d(0, ${p * 140}px, 0)`;   // stars drift slowest: depth
-      if (s.near) s.near.style.transform = `translate3d(0, ${p * -70}px, 0)`; // taped photos drift fastest
+      if (s.near) s.near.style.transform = `translate3d(0, ${p * 30}px, 0)`;  // taped photos trail the planet a little
     });
     // the little planet in the top bar spins as you travel down the page
     if (logo) logo.style.transform = `rotate(${(window.scrollY || 0) * 0.25}deg)`;

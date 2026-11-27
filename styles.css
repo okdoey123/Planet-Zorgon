@@ -757,6 +757,8 @@ code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: .88em;
 
 /* 1. two photos taped in the night sky beside the planet */
 .sp-planet { position: relative; }
+.sp-sky { position: absolute; inset: 0; pointer-events: none; } /* full-size layer, so the photos sit around the planet even while it drifts */
+.sp-sky .pola { pointer-events: auto; }
 .sp-sky .pola { position: absolute; width: clamp(110px, 15vw, 190px); z-index: 2; }
 .sp-sky .pola--sky1 { top: 2%; left: -4%; }
 .sp-sky .pola--sky2 { bottom: 4%; right: -2%; }

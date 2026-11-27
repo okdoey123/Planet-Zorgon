@@ -50,26 +50,23 @@ const ABOUT = {
 };
 const MOVIES = [
   {
-    "sample": true,
-    "title": "Mad Max: Fury Road",
-    "year": "2015",
-    "date": "",
-    "image": "",
+    "title": "Evil Dead II",
+    "year": "1987",
+    "date": "2026-11-28",
+    "image": "images/evil-dead-2.jpg",
     "score": 5,
-    "verdict": "Two hours of screaming in the best possible way.",
-    "review": "This is a sample review. Write what you actually felt, not what a critic would say.\n\nWhat stuck with you after the credits? Which scene would you show a friend first? Who should skip it?\n\nA good review here is three short paragraphs. Nobody's grading you.",
-    "credits": []
-  },
-  {
-    "sample": true,
-    "title": "Spirited Away",
-    "year": "2001",
-    "date": "",
-    "image": "",
-    "score": 4,
-    "verdict": "Comfort food that is also slightly terrifying.",
-    "review": "Another sample review. Swap in your own movie, year, picture and score.\n\nTip: start with the one sentence you'd text a friend about it. That's your verdict line.",
-    "credits": []
+    "verdict": "GROOOOVVVYYYYYY",
+    "review": "This is the only movie you'll find on this website with a perfect score, because it is that good. I am heavily biased towards this movie, but man, am I glad I've watched it so many times. It is something that cannot be replicated, and words can't express how special it is.\n\nIt was made by the same guy who made the original Spider-Man, Sam Raimi. Bruce Campbell makes Ash feel like a goofy fucking hunk, and God bless him.\n\nReviewing this is pointless. It is perfect with all its flaws, and that is that.",
+    "credits": [
+      [
+        "Director",
+        "Sam Raimi"
+      ],
+      [
+        "Starring",
+        "Bruce Campbell"
+      ]
+    ]
   }
 ];
 const GAMES = [

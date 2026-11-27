@@ -149,7 +149,7 @@ const MISERIES = [
   {
     "date": "2026-11-26",
     "title": "Day 2",
-    "misery": 2,
+    "misery": 4,
     "image": "",
     "text": "I sometimes wonder how Spy Kids, a fairly simple kids' movie about kids being spies, suddenly drops one of the most philosophical lines ever: that God stays up there because he might be scared of his own creation. Delivered by none other than Steve Buscemi."
   },

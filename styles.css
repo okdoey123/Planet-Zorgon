@@ -838,3 +838,51 @@ code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: .88em;
 .motion .hero__planet .planet, .motion .rv-planet .planet, .motion .sp-planet .planet,
 .motion .hero__copy, .motion .rv-hero__copy, .motion .sp-hero__copy, .motion .hero__sparks, .motion .sp-sky { will-change: transform; }
 .bar__logo { transition: transform .2s linear; }
+
+/* =====================================================================
+   DAY / NIGHT CYCLE (daynight.js sets data-sky on <html> from the visitor's clock)
+   Day keeps the bright inks. Dawn/dusk dim them a step. Night goes deep blue,
+   softer pink and mustard, dimmer paper, with stars. Text contrast stays readable.
+   ===================================================================== */
+html[data-sky="dawn"], html[data-sky="dusk"] {
+  --pink: #f0509e; --pink-lite: #f493c4;
+  --blue: #22389c; --blue-deep: #17277a;
+  --yellow: #ecc23a; --paper: #ebe7f2;
+}
+html[data-sky="night"] {
+  --pink: #cc4a8c; --pink-lite: #dd86b3;
+  --blue: #142463; --blue-deep: #0d1846;
+  --yellow: #b8922a; --paper: #d2cddf;
+}
+body, .hero, .about, .like, .miseries, .signal, .rv-hero, .rv-body, .rv-more, .sp-note, .sp-watch,
+.passport, .print__link, .sheet, .day, .bar.is-scrolled, .about::before, .like::before, .miseries::before {
+  transition: background-color 2s ease, color 2s ease;
+}
+/* night: stars over the blue skies, planets a touch dimmer */
+html[data-sky="night"] .hero,
+html[data-sky="night"] .rv-hero,
+html[data-sky="night"] .miseries {
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255, 210, 63, .9) 0 1.1px, transparent 1.8px),
+    radial-gradient(circle at 70% 65%, rgba(255, 255, 255, .8) 0 .9px, transparent 1.6px),
+    radial-gradient(circle at 45% 85%, rgba(232, 137, 187, .8) 0 1px, transparent 1.7px);
+  background-size: 160px 160px, 110px 110px, 70px 70px;
+}
+html[data-sky="night"] .planet, html[data-sky="night"] .foot__planet { filter: brightness(.86) saturate(.9); transition: filter 2s ease; }
+html[data-sky="dawn"] .planet, html[data-sky="dusk"] .planet { filter: brightness(.95); }
+
+/* the sun / moon */
+.sky-body {
+  position: absolute; z-index: 0; pointer-events: none;
+  left: var(--x, 50%); top: var(--y, 20%);
+  width: clamp(54px, 6.5vw, 96px); aspect-ratio: 1;
+  translate: -50% -50%;
+  transition: left 60s linear, top 60s linear;
+}
+.sky-body svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.sky-body--sun { filter: drop-shadow(0 0 22px rgba(255, 210, 63, .55)); }
+.sky-body--moon { filter: drop-shadow(0 0 18px rgba(243, 240, 247, .45)); }
+.motion .sky-body__rays { transform-origin: 50px 50px; transform-box: view-box; animation: rays 40s linear infinite; }
+@keyframes rays { to { transform: rotate(360deg); } }
+.hero > :not(.sky-body):not(.hero__sparks), .rv-hero > :not(.sky-body) { position: relative; z-index: 1; }
+@media (max-width: 860px) { .sky-body { width: 48px; } }

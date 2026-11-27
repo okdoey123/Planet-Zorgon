@@ -101,7 +101,7 @@ const COMICS = [
     "image": "images/arkham-asylum.jpg",
     "score": 4,
     "verdict": "Loved it when Joker said \"Why so serious\" and made out with Batman",
-    "review": "It is good for now.",
+    "review": "At first glance, it looks as if the writers were high on meth and fentanyl and then wrote this on seven cups of coffee per hour. The art style is the epitome of goth and screams Arkham Asylum. It helps you picture how depraved and ugly this place is. On top of that, you have the bloody Joker taking over the place, and things only get worse for Batman.\n\nIt is one of the few comics where Batman does not try to save Gotham from the villains but makes an effort to understand them. The backstory of Amadeus Arkham running through the whole book caught me off guard, yet it somehow fit right in with the pacing of the main story.",
     "credits": [
       [
         "Writer",

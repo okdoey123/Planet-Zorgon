@@ -817,3 +817,24 @@ code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: .88em;
 .score .half { position: relative; display: inline-block; width: 22px; height: 22px; flex: none; }
 .score .half svg { position: absolute; inset: 0; width: 100%; height: 100%; }
 .score .half .on { clip-path: inset(0 50% 0 0); }
+
+/* =====================================================================
+   SCROLL MOTION (motion.js adds .motion only when the visitor allows motion)
+   Uses translate/rotate/scale properties so it never fights the
+   tilted cards' own transform.
+   ===================================================================== */
+.motion .rv-up, .motion .rv-head, .motion .rv-drop, .motion .rv-rise {
+  opacity: 0;
+  transition: opacity .7s var(--ease-out) var(--d, 0ms), translate .9s var(--ease-out) var(--d, 0ms),
+              rotate .9s var(--ease-out) var(--d, 0ms), scale .9s var(--ease-out) var(--d, 0ms);
+}
+.motion .rv-up { translate: 0 36px; }
+.motion .rv-head { translate: -28px 0; }
+.motion .rv-drop { translate: 0 -46px; rotate: -9deg; scale: 1.08; }
+.motion .rv-rise { translate: 0 70px; }
+.motion .is-in { opacity: 1; translate: 0 0; rotate: 0deg; scale: 1; }
+
+/* scroll-linked parts: let the browser optimise them */
+.motion .hero__planet .planet, .motion .rv-planet .planet, .motion .sp-planet .planet,
+.motion .hero__copy, .motion .rv-hero__copy, .motion .sp-hero__copy, .motion .hero__sparks, .motion .sp-sky { will-change: transform; }
+.bar__logo { transition: transform .2s linear; }

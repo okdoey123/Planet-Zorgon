@@ -812,3 +812,8 @@ code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: .88em;
   .sp-wall__grid .pola { margin-bottom: var(--s5); padding: 5px 5px 16px; }
   .viewer__prev, .viewer__next { top: auto; bottom: var(--s5); translate: none; }
 }
+
+/* half planet: grey planet underneath, pink planet clipped to its left half on top */
+.score .half { position: relative; display: inline-block; width: 22px; height: 22px; flex: none; }
+.score .half svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.score .half .on { clip-path: inset(0 50% 0 0); }

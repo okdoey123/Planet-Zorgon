@@ -82,10 +82,15 @@ content:
       default: '4'
       options:
         values:
+        - '0.5'
         - '1'
+        - '1.5'
         - '2'
+        - '2.5'
         - '3'
+        - '3.5'
         - '4'
+        - '4.5'
         - '5'
     - name: verdict
       label: One-line verdict (shown on the card and as the speech bubble)
@@ -135,10 +140,15 @@ content:
       default: '4'
       options:
         values:
+        - '0.5'
         - '1'
+        - '1.5'
         - '2'
+        - '2.5'
         - '3'
+        - '3.5'
         - '4'
+        - '4.5'
         - '5'
     - name: verdict
       label: One-line verdict (shown on the card and as the speech bubble)
@@ -188,10 +198,15 @@ content:
       default: '4'
       options:
         values:
+        - '0.5'
         - '1'
+        - '1.5'
         - '2'
+        - '2.5'
         - '3'
+        - '3.5'
         - '4'
+        - '4.5'
         - '5'
     - name: verdict
       label: One-line verdict (shown on the card and as the speech bubble)

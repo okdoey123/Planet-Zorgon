@@ -9,6 +9,7 @@ const read = (f, fallback) => { try { return JSON.parse(fs.readFileSync(f, "utf8
 // Pages CMS saves pictures as "/images/x.jpg"; the site uses "images/x.jpg". Accept both.
 const pic = (p) => String(p || "").trim().replace(/^\/+/, "");
 const num = (n, lo, hi, d) => { const v = parseInt(n, 10); return Number.isFinite(v) ? Math.max(lo, Math.min(hi, v)) : d; };
+const half = (n) => { const v = parseFloat(n); return Number.isFinite(v) ? Math.max(0, Math.min(5, Math.round(v * 2) / 2)) : 0; }; // 0, 0.5 … 5
 const pairs = (arr) => (Array.isArray(arr) ? arr : []).filter((x) => x && (x.label || x.value)).map((x) => [String(x.label || ""), String(x.value || "")]);
 const byDateDesc = (a, b) => String(b.date || "").localeCompare(String(a.date || ""));
 
@@ -21,7 +22,7 @@ const review = (it) => ({
   year: String(it.year || ""),
   date: String(it.date || ""),
   image: pic(it.image),
-  score: num(it.score, 0, 5, 0),
+  score: half(it.score),
   verdict: String(it.verdict || ""),
   review: String(it.review || ""),
   credits: pairs(it.credits),

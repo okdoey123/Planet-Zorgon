@@ -48,9 +48,13 @@ window.PZ = (function () {
   }
 
   function score(n, label = "Zorgon score") {
-    n = clamp(n, 0, 5);
+    n = Math.round(clamp(parseFloat(n), 0, 5) * 2) / 2;           // whole or half planets
     let s = "";
-    for (let i = 1; i <= 5; i++) s += icon("i-planet", i <= n ? "on" : "off");
+    for (let i = 1; i <= 5; i++) {
+      if (i <= n) s += icon("i-planet", "on");
+      else if (i - 0.5 === n) s += `<span class="half">${icon("i-planet", "off")}${icon("i-planet", "on")}</span>`;
+      else s += icon("i-planet", "off");
+    }
     return `<span class="score" role="img" aria-label="${label}: ${n} out of 5">${s}</span>`;
   }
 

@@ -120,6 +120,13 @@ const COMICS = [
 ];
 const MISERIES = [
   {
+    "date": "2026-11-27",
+    "title": "Day 3",
+    "misery": 3,
+    "image": "",
+    "text": "Why the fuck is the medical centre 1,700 km away from the hostels? People would die before reaching that place."
+  },
+  {
     "date": "2026-11-26",
     "title": "Day 2",
     "misery": 2,
